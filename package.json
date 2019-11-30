@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack && concurrently \"webpack --watch\" \"nodemon dist\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,9 +30,13 @@
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "reliable-round": "^1.0.8",
-    "typestyle": "^2.0.4"
+    "typestyle": "^2.0.4",
+    "waait": "^1.0.5"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.23",
     "@types/node": "^12.12.14",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^6.26.3",
@@ -41,8 +45,13 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "concurrently": "^5.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "jest-helpers": "^3.1.0",
     "nodemon": "^2.0.1",
     "source-map-loader": "^0.2.4",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",

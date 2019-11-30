@@ -31,19 +31,17 @@ export const SurveyDetails: React.FC<Props> = (props: Props) => {
       let responseDetails
       try {
         responseDetails = await axios.get(SURVEY_BASE_URL+`surveys/${surveyId}`) as SurveyAPIResponse
+        setDetails({
+          ...prepareData(responseDetails.data.survey_result_detail),
+          name: responseDetails.data.survey_result_detail.name
+        })
       } catch(e) {
         setDetails({
           name: '',
           participationRate: 0,
-          question: [{
-            description: null, rating: 0
-          }]
+          question: []
         })
       }
-      setDetails({
-        ...prepareData(responseDetails.data.survey_result_detail),
-        name: responseDetails.data.survey_result_detail.name
-      })
     }
     loadSurveyDetails()
   },[surveyId])

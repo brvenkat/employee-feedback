@@ -20,7 +20,7 @@ export const prepareData = (details: SurveyDetailsResponse): ParsedResponse => {
     participationRate: round(details.response_rate * 100, 2),
     question: simplifiedResponse.map((response) => ({
       description: response.description,
-      rating: round(response.responseContent/response.responsesLength, 2)
+      rating: isNaN(round(response.responseContent/response.responsesLength, 2)) ? 0 : round(response.responseContent/response.responsesLength, 2)
     }))
   }
 }

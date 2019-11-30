@@ -3,7 +3,7 @@ import {style} from 'typestyle'
 import { SurveyResponse } from '../../models/SurveyResponse'
 import { Routes } from './Routes'
 
-const AppStyle = style({
+export const AppStyle = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center'
