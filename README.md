@@ -52,9 +52,11 @@ Server rendering was primarily chosen so that users can have better experience i
 Screenshots are provided. On the survey details page, i have listed only theme, question description, question number and average response rating instead of everything coming back from API. I left out id's and other minor fields as i did not feel it is important information to be displayed in the UI. On the survey summary screen, the name of the survey is displayed and it is a clickable hyperlink. Again did not display all the information coming from API to make UI simpler and easier to understand. The table in UI for survey details is scrollable but has fixed header so user knows what data they see on screen. Also mostly optimized it for mobile devices wherever possible.
 
 ## Screenshots
-https://user-images.githubusercontent.com/11412050/69907926-7d855880-1433-11ea-8cac-154fa8156229.png
+Main Survey Page
+https://user-images.githubusercontent.com/11412050/69909916-b125aa00-1456-11ea-96cf-4732559c8c90.png
 
-Mobile Device
-https://user-images.githubusercontent.com/11412050/69907927-82e2a300-1433-11ea-825c-d30ff6283a61.png
+Survey Details Page
+https://user-images.githubusercontent.com/11412050/69909919-b84cb800-1456-11ea-8432-a3799f57b7da.png
 
-https://user-images.githubusercontent.com/11412050/69907943-8a09b100-1433-11ea-9599-d0c0eebb6b53.png
+Survey Details on Mobile Device
+https://user-images.githubusercontent.com/11412050/69909923-cb5f8800-1456-11ea-8439-3cb5a8f798ab.png
