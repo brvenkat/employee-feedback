@@ -29,7 +29,8 @@ const paperStyle = style({
 const backButton = style({
   cursor: 'pointer',
   top: '1%',
-  position: 'absolute'
+  position: 'absolute',
+  fontFamily: 'arial'
 })
 
 const tableStyle = style({
@@ -79,8 +80,8 @@ export const SurveyDetails: React.FC<Props> = (props: Props) => {
     <>
     <Link onClick={back} className={backButton}>Back to Survey Summary</Link>
     <span className={tableStyle}>
-      <h3 style={{ display: 'flex', alignSelf: 'center' }}>Survey: {details.name}</h3>
-      <h3 style={{ textAlign: 'center' }}>Participation Rate - {details.participationRate} percent</h3>
+      <h3 style={{ display: 'flex', alignSelf: 'center', fontFamily: 'arial' }}>Survey: {details.name}</h3>
+      <h3 style={{ textAlign: 'center', fontFamily: 'arial' }}>Participation Rate - {details.participationRate} percent</h3>
       <Paper className={paperStyle}>
         <Table stickyHeader className={parentTable}>
           <TableHead>

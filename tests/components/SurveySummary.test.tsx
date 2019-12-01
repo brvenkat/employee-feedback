@@ -23,7 +23,7 @@ describe('SurveyData', () => {
         <SurveySummary {...props} />
       </MemoryRouter>
     )
-    expect(wrapper.find('h3').text()).toEqual('Click on the names to see survey details')
+    expect(wrapper.find('h3').text()).toEqual('Click on the links to see survey results')
     expect(wrapper.find(NavLink).at(0).prop('to')).toEqual('1')
     expect(wrapper.find(NavLink).at(0).childAt(0).text()).toEqual('some-name')
     expect(wrapper.find(NavLink).at(1).prop('to')).toEqual('2')

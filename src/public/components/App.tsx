@@ -12,11 +12,12 @@ export const AppStyle = style({
 
 export const HeaderStyle = style({
   textAlign: 'center',
+  fontFamily: 'arial'
 })
 
 const App = (props: {surveys: SurveyResponse[]}) => (
   <span className={AppStyle}>
-    <h1 className={HeaderStyle}>Welcome to the employee Feedback Survey</h1>
+    <h1 className={HeaderStyle}>Welcome to the Employee Feedback Survey</h1>
     <Routes surveys={props.surveys} />
   </span>
 )

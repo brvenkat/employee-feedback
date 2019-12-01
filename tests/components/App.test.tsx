@@ -19,7 +19,7 @@ describe('App', () => {
         <App {...props}/>
       </MemoryRouter>
     )
-    expect(wrapper.find('h1').text()).toEqual('Welcome to the employee Feedback Survey')
+    expect(wrapper.find('h1').text()).toEqual('Welcome to the Employee Feedback Survey')
     expect(wrapper.find(Routes).prop('surveys')).toEqual(props.surveys)
     expect(wrapper.find('span').at(0).hasClass(AppStyle)).toEqual(true)
   })

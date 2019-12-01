@@ -15,12 +15,17 @@ const NavStyle = style({
 
 const SpanStyle = style({
   paddingTop: '10px',
-  paddingBottom: '10px'
+  paddingBottom: '10px',
+  fontFamily: 'arial'
+})
+
+const headerStyle = style({
+  fontFamily: 'arial'
 })
 
 export const SurveySummary = (props: {surveys: SurveyResponse[]}) => (
   <span className={NavStyle}>
-    <h3>Click on the names to see survey details</h3>
+    <h3 className={headerStyle}>Click on the links to see survey results</h3>
     {
       props.surveys.map((survey, i) => {
         const surveyId = survey.url.split('/').pop()

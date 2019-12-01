@@ -28,7 +28,7 @@ app.get('/*', async (req, res) => {
     <head>
       <script>window.__INITIAL__DATA__ = ${JSON.stringify({ surveys })}</script>
     </head>
-    <body bgcolor="lightblue">
+    <body bgcolor="lavender">
     <div id="root">${component}</div>
     <script src="/static/home.js"></script>
   </body>
