@@ -1,7 +1,7 @@
 import { partialOf } from 'jest-helpers'
-import { SurveyDetailsResponse, Questions } from '../../src/models/SurveyDetailsResponse'
+import { SurveyDetailResult, Questions } from '../../src/models/SurveyDetails'
 
-export const inputOne = partialOf<SurveyDetailsResponse>({
+export const inputOne = partialOf<SurveyDetailResult>({
   name: 'some-survey',
   response_rate: 0.844,
   themes: [
@@ -33,10 +33,10 @@ export const inputOne = partialOf<SurveyDetailsResponse>({
 
 export const outputOne = {
   participationRate: 84.4,
-  question: [ { description: 'some-question-1', rating: 4 } ]
+  question: [ { description: 'some-question-1', rating: 4, theme: 'some-question-theme' } ]
 }
 
-export const inputTwo = partialOf<SurveyDetailsResponse>({
+export const inputTwo = partialOf<SurveyDetailResult>({
   name: 'some-survey',
   response_rate: 0.844,
   themes: [
@@ -87,12 +87,12 @@ export const inputTwo = partialOf<SurveyDetailsResponse>({
 export const outputTwo = {
   participationRate: 84.4,
   question: [
-    { description: 'some-question-1', rating: 4.5 },
-    { description: 'some-question-2', rating: 0 }
+    { description: 'some-question-1', rating: 4.5, theme: 'some-question-theme' },
+    { description: 'some-question-2', rating: 0, theme: 'some-question-theme' }
   ]
 }
 
-export const inputThree = partialOf<SurveyDetailsResponse>({
+export const inputThree = partialOf<SurveyDetailResult>({
   name: 'some-survey',
   response_rate: 0.844,
   themes: []

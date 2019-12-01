@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import { SurveyData } from '../../src/public/components/SurveyData'
+import { SurveySummary } from '../../src/public/components/SurveySummary'
 import { MemoryRouter } from 'react-router'
 import { NavLink } from 'react-router-dom'
 
@@ -20,7 +20,7 @@ describe('SurveyData', () => {
     }
     const wrapper = mount(
       <MemoryRouter initialEntries={[ '/' ]}>
-        <SurveyData {...props} />
+        <SurveySummary {...props} />
       </MemoryRouter>
     )
     expect(wrapper.find('h3').text()).toEqual('Click on the names to see survey details')

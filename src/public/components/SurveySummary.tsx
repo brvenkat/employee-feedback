@@ -1,20 +1,24 @@
 import * as React from 'react'
-import { SurveyResponse } from '../../models/SurveyResponse'
+import { SurveyResponse } from '../../models/SurveySummary'
 import { NavLink } from 'react-router-dom'
-import { style } from 'typestyle'
+import { style, media } from 'typestyle'
 
 const NavStyle = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-})
+  justifyContent: 'center'
+  },
+  media({ maxWidth: 768 }, { height: '70vh' }),
+  media({ minWidth: 768 }, { height: '80vh' })
+)
 
 const SpanStyle = style({
   paddingTop: '10px',
   paddingBottom: '10px'
 })
 
-export const SurveyData = (props: {surveys: SurveyResponse[]}) => (
+export const SurveySummary = (props: {surveys: SurveyResponse[]}) => (
   <span className={NavStyle}>
     <h3>Click on the names to see survey details</h3>
     {
