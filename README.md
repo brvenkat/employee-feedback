@@ -15,7 +15,7 @@ the API is called server side and data presented on UI.
 
 #### Locally
 
-Please note that there is a .env file that you need as well
+Please note that there is a .env file checked in , that you need as well
 
 
 ### Run the application:
