@@ -1,4 +1,4 @@
-export interface SurveyDetailsResponse {
+export interface SurveyDetailResult {
   name: string
   participant_count: number
   response_rate: number
@@ -13,10 +13,10 @@ interface Themes {
 export interface Questions {
   description: string
   question_type: string
-  survey_responses: SurveyResponses[]
+  survey_responses: Responses[]
 }
 
-interface SurveyResponses {
+interface Responses {
   id: number
   question_id: number
   respondent_id: number
@@ -25,6 +25,6 @@ interface SurveyResponses {
 
 export interface SurveyAPIResponse {
   data: {
-    survey_result_detail: SurveyDetailsResponse
+    survey_result_detail: SurveyDetailResult
   }
 }

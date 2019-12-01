@@ -14,7 +14,7 @@ dotenv.config({ path: './.env' })
 
 app.get('/*', async (req, res) => {
   const context: {url?: string} = {}
-  const surveys = await fetch()
+  const surveys = req.params['0'] ? [] : await fetch()
 
   const component = ReactDOMServer.renderToString(
     <Router location={req.url} context={context}>

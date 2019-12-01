@@ -1,17 +1,22 @@
 import * as React from 'react'
-import {style} from 'typestyle'
-import { SurveyResponse } from '../../models/SurveyResponse'
+import { style, media} from 'typestyle'
+import { SurveyResponse } from '../../models/SurveySummary'
 import { Routes } from './Routes'
 
 export const AppStyle = style({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  },
+)
+
+export const HeaderStyle = style({
+  textAlign: 'center',
 })
 
 const App = (props: {surveys: SurveyResponse[]}) => (
   <span className={AppStyle}>
-    <h1 style={{ textAlign: 'center' }}>Welcome to the employee Feedback Survey</h1>
+    <h1 className={HeaderStyle}>Welcome to the employee Feedback Survey</h1>
     <Routes surveys={props.surveys} />
   </span>
 )

@@ -1,11 +1,11 @@
-import * as _ from 'lodash'
-import { SurveyDetailsResponse } from '../models/SurveyDetailsResponse'
+import { SurveyDetailResult } from '../models/SurveyDetails'
 import { round } from 'reliable-round'
-import { ParsedResponse } from '../models/ParsedResponse'
+import { SimplifiedSurveyDetails } from '../models/SimplifiedSurveyDetails'
 
-export const prepareData = (details: SurveyDetailsResponse): ParsedResponse => {
+export const prepareData = (details: SurveyDetailResult): SimplifiedSurveyDetails => {
   const simplifiedResponse = details.themes.reduce((prev, next) => {
     const questions = next.questions.map((question) => ({
+      theme: next.name,
       description: question.description,
       responsesLength: question.survey_responses
         .filter((response) => response.response_content !== '').length,
@@ -20,6 +20,7 @@ export const prepareData = (details: SurveyDetailsResponse): ParsedResponse => {
     participationRate: round(details.response_rate * 100, 2),
     question: simplifiedResponse.map((response) => ({
       description: response.description,
+      theme: response.theme,
       rating: isNaN(round(response.responseContent/response.responsesLength, 2)) ? 0 : round(response.responseContent/response.responsesLength, 2)
     }))
   }

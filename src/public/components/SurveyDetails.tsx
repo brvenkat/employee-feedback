@@ -1,23 +1,50 @@
 import * as React from 'react'
 import axios from 'axios'
 import { prepareData } from '../../utils/parse'
-import { ParsedResponse } from '../../models/ParsedResponse'
+import { SimplifiedSurveyDetails } from '../../models/SimplifiedSurveyDetails'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import { Row } from './Row'
+import { SurveyDetailRow } from './SurveyDetailRow'
 import { RouteComponentProps } from 'react-router-dom';
-import { Link } from '@material-ui/core';
-import { SurveyAPIResponse } from '../../models/SurveyDetailsResponse';
+import { Link, Paper } from '@material-ui/core';
+import { SurveyAPIResponse } from '../../models/SurveyDetails';
+import { style, media } from 'typestyle'
 
 interface Props extends RouteComponentProps {
 }
 
-interface State extends ParsedResponse {
+interface State extends SimplifiedSurveyDetails {
   name: string
 }
+
+const paperStyle = style({
+  width: '94vw',
+  margin: '0 auto',
+  overflowX: 'auto',
+})
+
+const backButton = style({
+  cursor: 'pointer',
+  top: '1%',
+  position: 'absolute'
+})
+
+const tableStyle = style({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  height: '70vh'
+  },
+  media({ maxWidth: 768 }, { height: '70vh' }),
+  media({ minWidth: 768 }, { height: '80vh' })
+)
+
+const parentTable = style({
+  border: '1px solid blue'
+})
 
 const SURVEY_BASE_URL = 'https://px2yf2j445.execute-api.us-west-2.amazonaws.com/production/'
 
@@ -50,26 +77,32 @@ export const SurveyDetails: React.FC<Props> = (props: Props) => {
   }
   return (
     <>
-    <Link onClick={back} style={{ cursor: 'pointer' }}>Back to Survey Summary</Link>
-    <h3 style={{ display: 'flex', alignSelf: 'center' }}>Survey: {details.name}</h3>
-    <h3>Participation Rate - {details.participationRate}</h3>
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Question Description</TableCell>
-          <TableCell align="right">Response Rating</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {
-          details.question.map((detail, i) => (
-            <TableRow key={i}>
-              <Row detail={detail} />
+    <Link onClick={back} className={backButton}>Back to Survey Summary</Link>
+    <span className={tableStyle}>
+      <h3 style={{ display: 'flex', alignSelf: 'center' }}>Survey: {details.name}</h3>
+      <h3 style={{ textAlign: 'center' }}>Participation Rate - {details.participationRate} percent</h3>
+      <Paper className={paperStyle}>
+        <Table stickyHeader className={parentTable}>
+          <TableHead>
+            <TableRow>
+              <TableCell>Question No.</TableCell>
+              <TableCell>Theme</TableCell>
+              <TableCell>Question Description</TableCell>
+              <TableCell align="right">Response Rating</TableCell>
             </TableRow>
-          ))
-        }
-      </TableBody>
-    </Table>
+          </TableHead>
+          <TableBody>
+            {
+              details.question.map((detail, i) => (
+                <TableRow key={i}>
+                  <SurveyDetailRow detail={detail} index={i+1}/>
+                </TableRow>
+              ))
+            }
+          </TableBody>
+        </Table>
+      </Paper>
+    </span>
     </>
   )
 } 
